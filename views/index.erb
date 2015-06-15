@@ -9,23 +9,28 @@
 
     <div class="form-group">
       <select name="from" class="form-control">
-        <option value="KBR">Kota Bharu (KBR)</option>
-        <option value="KUL">Kuala Lumpur (KUL)</option>
-        <option value="SZB">Subang (SZB)</option>
+        <% @airports.each do |airport| %>
+          <option value="<%= airport[1] %>" <%= @params[:from] == airport[1] ? "selected" : "" %>>
+            <%= "#{airport[0]} (#{airport[1]})" %>
+          </option>
+        <% end %>
       </select>
     </div>
 
     <div class="form-group">
       <select name="to" class="form-control">
-        <option value="KBR">Kota Bharu (KBR)</option>
-        <option value="KUL">Kuala Lumpur (KUL)</option>
-        <option value="SZB">Subang (SZB)</option>
+        <% @airports.each do |airport| %>
+          <option value="<%= airport[1] %>" <%= @params[:to] == airport[1] ? "selected" : "" %>>
+            <%= "#{airport[0]} (#{airport[1]})" %>
+          </option>
+        <% end %>
       </select>
     </div>
 
     <div class="form-group">
       <div class="input-group date">
-        <input name="date" type="text" class="form-control" placeholder="31-12-2015"><span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+        <input name="date" type="text" class="form-control" placeholder="31-12-2015" value="<%= params[:date] %>">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
       </div>
     </div>
 

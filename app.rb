@@ -10,6 +10,24 @@ class App < Sinatra::Base
 
     @flights = []
     @errors = []
+
+    @airports = [
+      ['Alor Setar', 'AOR'],
+      ['Bintulu', 'BTU'],
+      ['Johor Bahru', 'JHB'],
+      ['Kota Bharu', 'KBR'],
+      ['Kota Kinabalu', 'BKI'],
+      ['Kuala Lumpur', 'KUL'],
+      ['Kuala Terengganu', 'TGG'],
+      ['Kuching', 'KCH'],
+      ['Labuan', 'LBU'],
+      ['Langkawi', 'LGK'],
+      ['Miri', 'MYY'],
+      ['Penang', 'PEN'],
+      ['Sandakan', 'SDK'],
+      ['Sibu', 'SBW'],
+      ['Tawau', 'TWU'],
+    ]
   end
 
   get '/' do
