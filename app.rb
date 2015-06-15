@@ -26,6 +26,7 @@ class App < Sinatra::Base
       ['Penang', 'PEN'],
       ['Sandakan', 'SDK'],
       ['Sibu', 'SBW'],
+      ['Subang', 'SZB'],
       ['Tawau', 'TWU'],
     ]
   end
