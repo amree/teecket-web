@@ -85,7 +85,25 @@
         </div>
       <% else %>
         <% unless params[:from].nil? %>
-          <p class="noresult">No flight found for this search.</p>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Flight</th>
+                <th>Flight #</th>
+                <th>Transit</th>
+                <th>Origin</th>
+                <th>Destination</th>
+                <th>Depart</th>
+                <th>Arrive</th>
+                <th>Fare (RM)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="text-center noresult" colspan="8">No flight found for this search.</td>
+              </tr>
+            </tbody>
+          </table>
         <% end %>
       <% end %>
 
