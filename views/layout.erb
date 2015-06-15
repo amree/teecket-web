@@ -53,6 +53,10 @@
         to = $('select[name="to"]').val();
         date = $('input[name="date"]').val();
 
+        <% if Sinatra::Base.production? %>
+            ga('send', 'event', { eventCategory: 'Search', eventAction: 'Clicked Search'});
+        <% end %>
+
         window.location.replace(protocol + '//' + host + '/' + from + '/' + to + '/' + date);
 
         return false;
