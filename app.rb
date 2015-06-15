@@ -31,12 +31,10 @@ class App < Sinatra::Base
   end
 
   def validate
-    @params[:from] = @params[:from] || ""
-    @params[:to] = @params[:to] || ""
-    @params[:date] = @params[:date] || ""
-
-    if @params[:submit] && (@params[:from].empty? || @params[:to].empty? || @params[:date].empty?)
-      @errors << "Make sure you've entered all the inputs"
+    unless @params[:from].nil?
+      if @params[:from].empty? || @params[:to].empty? || @params[:date].empty?
+        @errors << "Make sure you've entered all the inputs"
+      end
     end
   end
 
