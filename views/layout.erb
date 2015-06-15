@@ -33,6 +33,19 @@
         orientation: "auto",
         todayHighlight: true,
       });
+
+      $('form[name="search"]').submit(function() {
+        protocol = location.protocol;
+        host = location.host;
+
+        from = $('select[name="from"]').val();
+        to = $('select[name="to"]').val();
+        date = $('input[name="date"]').val();
+
+        window.location.replace(protocol + '//' + host + '/' + from + '/' + to + '/' + date);
+
+        return false;
+      });
     });
     </script>
   </head>

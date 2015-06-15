@@ -39,9 +39,7 @@ class App < Sinatra::Base
   end
 
   def search
-    unless @params[:submit].nil?
-      @flights = Teecket.search(from: @params[:from], to: @params[:to], date: @params[:date])
-    end
+    @flights = Teecket.search(from: @params[:from], to: @params[:to], date: @params[:date])
   end
 
   run! if app_file == $0
