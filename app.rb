@@ -43,7 +43,7 @@ class App < Sinatra::Base
   def index
     validate
 
-    if @errors.empty?
+    if !@params[:to].nil? && @errors.empty?
       search
     end
 
