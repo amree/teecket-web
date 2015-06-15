@@ -14,6 +14,8 @@
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <link href="/css/jumbotron-narrow.css" rel="stylesheet">
     <link href="/css/bootstrap-datepicker3.min.css" rel="stylesheet">
+    <link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css" rel="stylesheet" />
+    <link href="/css/select2-bootstrap.min.css" rel="stylesheet">
     <link href="/css/style.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -25,6 +27,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="/js/bootstrap-datepicker.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js"></script>
 
     <script language="javascript">
     $(document).ready(function() {
@@ -45,6 +48,10 @@
         window.location.replace(protocol + '//' + host + '/' + from + '/' + to + '/' + date);
 
         return false;
+      });
+
+      $('.select2').select2({
+        theme: 'bootstrap'
       });
     });
     </script>
