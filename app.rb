@@ -3,6 +3,8 @@ require "tilt/erubis"
 require "teecket"
 
 class App < Sinatra::Base
+  enable :logging
+
   before do
     @params = params
 
