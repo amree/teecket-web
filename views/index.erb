@@ -49,64 +49,55 @@
   </div>
 <% end %>
 
-<div class="row marketing">
-  <div class="col-md-12">
-
-    
-      <div class="table-responsive text-center">
-        <table class="table">
-          <thead>
+<div class="marketing">
+  <div class="table-responsive text-center">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Flight</th>
+          <th>Flight #</th>
+          <th>Transit</th>
+          <th>Origin</th>
+          <th>Destination</th>
+          <th>Depart</th>
+          <th>Arrive</th>
+          <th>Fare (RM)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if @flights.count > 0 %>
+          <% @flights.each do |flight| %>
             <tr>
-              <th>Flight</th>
-              <th>Flight #</th>
-              <th>Transit</th>
-              <th>Origin</th>
-              <th>Destination</th>
-              <th>Depart</th>
-              <th>Arrive</th>
-              <th>Fare (RM)</th>
+              <td class="text-left"><%= flight[:flight_name] %></td>
+              <td><%= flight[:flight_number] %></td>
+              <td><%= flight[:transit] %></td>
+              <td><%= flight[:origin] %></td>
+              <td><%= flight[:destination] %></td>
+              <td><%= flight[:depart_at] %></td>
+              <td><%= flight[:arrive_at] %></td>
+              <td class="text-right"><%= flight[:fare] %></td>
             </tr>
-          </thead>
-          <tbody>
-            <% if @flights.count > 0 %>
-              <% @flights.each do |flight| %>
-                <tr>
-                  <td class="text-left"><%= flight[:flight_name] %></td>
-                  <td><%= flight[:flight_number] %></td>
-                  <td><%= flight[:transit] %></td>
-                  <td><%= flight[:origin] %></td>
-                  <td><%= flight[:destination] %></td>
-                  <td><%= flight[:depart_at] %></td>
-                  <td><%= flight[:arrive_at] %></td>
-                  <td class="text-right"><%= flight[:fare] %></td>
-                </tr>
-              <% end %>
-            <% else %>
-              <% unless params[:from].nil? %>
-                <tr>
-                  <td class="text-center noresult" colspan="8">No flight found for this search.</td>
-                </tr>
-              <% else %>
-                <tr>
-                  <td class="text-center noresult" colspan="8">Please select your origin, departure and date first.</td>
-                </tr>
-              <% end %>
-            <% end %>
-          </tbody>
-        </table>
-      </div>
-
+          <% end %>
+        <% else %>
+          <% unless params[:from].nil? %>
+            <tr>
+              <td class="text-center noresult" colspan="8">No flight found for this search.</td>
+            </tr>
+          <% else %>
+            <tr>
+              <td class="text-center noresult" colspan="8">Please select your origin, departure and date first.</td>
+            </tr>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
   </div>
 </div>
 
-<div class="row marketing">
-  <div class="col-md-12">
-    <p class="footer">
-      Developed with love using <a href="https://www.ruby-lang.org/en/">Ruby</a>. Source can be found on <a href="https://github.com/amree/teecket-web">GitHub</a>. Use the Facebook page for any feedbacks or reports, so, please don't forget to like our Page :)
-    </p>
-  </div>
+<div class="marketing">
+  <p class="footer">
+    Developed with love using <a href="https://www.ruby-lang.org/en/">Ruby</a>. Source can be found on <a href="https://github.com/amree/teecket-web">GitHub</a>. Use the Facebook page for any feedbacks or reports, so, please don't forget to like our Page :)
+  </p>
 
-  <div class="col-md-12">
-    <div class="fb-like" data-href="https://facebook.com/teecket-web" data-layout="standard" data-action="recommend" data-show-faces="true" data-share="true"></div>
-  </div>
+  <div class="fb-like" data-href="https://facebook.com/teecket-web" data-layout="standard" data-action="recommend" data-show-faces="true" data-share="true"></div>
 </div>
