@@ -11,6 +11,7 @@ GEM
   specs:
     celluloid (0.16.0)
       timers (~> 4.0.0)
+    erubis (2.7.0)
     ffi (1.9.8)
     hitimes (1.2.2)
     listen (2.10.0)
@@ -43,6 +44,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  erubis (~> 2.7.0)
   puma (~> 2.11.3)
   rerun (~> 0.10.0)
   sinatra (~> 1.4.6)
