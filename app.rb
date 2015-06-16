@@ -12,11 +12,11 @@ class App < Sinatra::Base
     @errors = []
 
     @airports = [
-      ['Autralia', 'Darwin', 'DRW'],
-      ['Autralia', 'Gold Coast', 'OOL'],
-      ['Autralia', 'Melbourne', 'MEL'],
-      ['Autralia', 'Perth', 'PER'],
-      ['Autralia', 'Sydney', 'SYD'],
+      ['Australia', 'Darwin', 'DRW'],
+      ['Australia', 'Gold Coast', 'OOL'],
+      ['Australia', 'Melbourne', 'MEL'],
+      ['Australia', 'Perth', 'PER'],
+      ['Australia', 'Sydney', 'SYD'],
       ['Bangladesh', 'Dhaka', 'DAC'],
       ['Brunei Darussalam', 'Brunei', 'BWN'],
       ['Cambodia', 'Phnom Penh', 'PNH'],
