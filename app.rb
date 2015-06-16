@@ -17,6 +17,7 @@ class App < Sinatra::Base
       ['Autralia', 'Melbourne', 'MEL'],
       ['Autralia', 'Perth', 'PER'],
       ['Autralia', 'Sydney', 'SYD'],
+      ['Bangladesh', 'Dhaka', 'DAC'],
       ['Malaysia', 'Alor Setar', 'AOR'],
       ['Malaysia', 'Bintulu', 'BTU'],
       ['Malaysia', 'Ipoh', 'IPH'],
