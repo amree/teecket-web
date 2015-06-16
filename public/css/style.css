@@ -27,6 +27,11 @@
   padding: 20px 0;
 }
 
+.select2-container--bootstrap .select2-results__group {
+  font-size: 16px;
+  color: #333;
+}
+
 @media (min-width: 360px) and (max-width: 640px) {
   .blockUI h1 {
     font-size: 16px;

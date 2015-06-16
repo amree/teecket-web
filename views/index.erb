@@ -9,6 +9,7 @@
 
     <div class="form-group">
       <select name="from" class="form-control select2">
+        <option disabled selected> Choose origin </option>
         <% countries = @airports.group_by{|a| a.first} %>
         <% countries.each do |country, airport| %>
           <optgroup label="<%= country %>">
@@ -24,6 +25,7 @@
 
     <div class="form-group">
       <select name="to" class="form-control select2">
+        <option disabled selected> Choose departure </option>
         <% countries = @airports.group_by{|a| a.first} %>
         <% countries.each do |country, airport| %>
           <optgroup label="<%= country %>">
