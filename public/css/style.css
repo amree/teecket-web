@@ -23,6 +23,10 @@
   margin-bottom: 100px;
 }
 
+.boxes {
+  padding: 20px 0;
+}
+
 @media (min-width: 360px) and (max-width: 640px) {
   .blockUI h1 {
     font-size: 16px;
