@@ -36,9 +36,31 @@
     <script src="/js/bootstrap-datepicker.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js"></script>
+    <script src="/js/jquery.blockUI.js"></script>
 
     <script language="javascript">
     $(document).ready(function() {
+      $('#search').click(function() { 
+        $.blockUI({ css: { 
+          border: 'none', 
+          padding: '15px', 
+          backgroundColor: '#000', 
+          '-webkit-border-radius': '10px', 
+          '-moz-border-radius': '10px', 
+          opacity: .5, 
+          color: '#fff'
+        } }); 
+
+        window.onload = function() {
+          loaded = true;
+        };
+        setTimeout($.unblockUI, function() {
+          if(!loaded) {
+            window.location.reload();
+          }
+        },time);
+      });
+
       $('.input-group.date').datepicker({
         format: "dd-mm-yyyy",
         orientation: "auto",
