@@ -21,6 +21,7 @@ class App < Sinatra::Base
       ['Brunei Darussalam', 'Brunei', 'BWN'],
       ['Cambodia', 'Phnom Penh', 'PNH'],
       ['Cambodia', 'Siam Reap', 'REP'],
+      ['Hong Kong', 'Hong Kong', 'HKG'],
       ['Malaysia', 'Alor Setar', 'AOR'],
       ['Malaysia', 'Bintulu', 'BTU'],
       ['Malaysia', 'Ipoh', 'IPH'],
