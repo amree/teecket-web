@@ -39,6 +39,11 @@ class App < Sinatra::Base
     index
   end
 
+  not_found do
+    status 404
+    erb :oops
+  end
+
   private
 
   def index
