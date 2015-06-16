@@ -50,6 +50,7 @@
 <% end %>
 
 <div class="marketing">
+  <% if @flights.count > 0 %>
   <div class="table-responsive text-center">
     <table class="table table-striped">
       <thead>
@@ -65,33 +66,46 @@
         </tr>
       </thead>
       <tbody>
-        <% if @flights.count > 0 %>
-          <% @flights.each do |flight| %>
-            <tr>
-              <td class="text-left"><%= flight[:flight_name] %></td>
-              <td><%= flight[:flight_number] %></td>
-              <td><%= flight[:transit] %></td>
-              <td><%= flight[:origin] %></td>
-              <td><%= flight[:destination] %></td>
-              <td><%= flight[:depart_at] %></td>
-              <td><%= flight[:arrive_at] %></td>
-              <td class="text-right"><%= flight[:fare] %></td>
-            </tr>
-          <% end %>
-        <% else %>
-          <% unless params[:from].nil? %>
-            <tr>
-              <td class="text-center noresult" colspan="8">No flight found for this search.</td>
-            </tr>
-          <% else %>
-            <tr>
-              <td class="text-center noresult" colspan="8">Please select your origin, departure and date first.</td>
-            </tr>
-          <% end %>
+        <% @flights.each do |flight| %>
+        <tr>
+          <td class="text-left"><%= flight[:flight_name] %></td>
+          <td><%= flight[:flight_number] %></td>
+          <td><%= flight[:transit] %></td>
+          <td><%= flight[:origin] %></td>
+          <td><%= flight[:destination] %></td>
+          <td><%= flight[:depart_at] %></td>
+          <td><%= flight[:arrive_at] %></td>
+          <td class="text-right"><%= flight[:fare] %></td>
+        </tr>
         <% end %>
       </tbody>
     </table>
   </div>
+  <% else %>
+    <% unless params[:from].nil? %>
+    <div class="table-responsive text-center">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Flight</th>
+            <th>Flight #</th>
+            <th>Transit</th>
+            <th>Origin</th>
+            <th>Destination</th>
+            <th>Depart</th>
+            <th>Arrive</th>
+            <th>Fare (RM)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="text-center noresult" colspan="8">No flight found for this search.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <% end %>
+  <% end %>
 </div>
 
 <div class="marketing">
