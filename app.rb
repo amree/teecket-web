@@ -57,6 +57,11 @@ class App < Sinatra::Base
       ['Indonesia', 'Surabaya', 'SUB'],
       ['Indonesia', 'Yogyakarta', 'JOG'],
       ['Indonesia', 'Pontianak', 'PNK'],
+      ['Japan', 'Osaka - Kansai', 'KIX'],
+      ['Japan', 'Sapporo - Shin-Chitose', 'CTS'],
+      ['Japan', 'Tokyo - Haneda', 'HND'],
+      ['Japan', 'Tokyo - Nareta', 'NRT'],
+      ['Laos', 'Vientiane', 'VTE'],
     ]
   end
 
