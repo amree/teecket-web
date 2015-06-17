@@ -3,26 +3,38 @@
   <img src="/images/logo64.png" />
 </div>
 
-<div class="well text-center">
+<div class="well text-center boxes">
 
   <form name="search" method="get" class="form-inline">
 
     <div class="form-group">
       <select name="from" class="form-control select2">
-        <% @airports.each do |airport| %>
-          <option value="<%= airport[1] %>" <%= @params[:from] == airport[1] ? "selected" : "" %>>
-            <%= "#{airport[0]} (#{airport[1]})" %>
-          </option>
+        <option disabled selected> Choose origin </option>
+        <% countries = @airports.group_by{|a| a.first} %>
+        <% countries.each do |country, airport| %>
+          <optgroup label="<%= country %>">
+            <% airport.each do |airport| %>
+            <option value="<%= airport[2] %>" <%= @params[:from] == airport[2] ? "selected" : "" %>>
+              <%= "#{airport[1]} (#{airport[2]})" %>
+            </option>
+            <% end %>
+          </optgroup>
         <% end %>
       </select>
     </div>
 
     <div class="form-group">
       <select name="to" class="form-control select2">
-        <% @airports.each do |airport| %>
-          <option value="<%= airport[1] %>" <%= @params[:to] == airport[1] ? "selected" : "" %>>
-            <%= "#{airport[0]} (#{airport[1]})" %>
-          </option>
+        <option disabled selected> Choose destination </option>
+        <% countries = @airports.group_by{|a| a.first} %>
+        <% countries.each do |country, airport| %>
+          <optgroup label="<%= country %>">
+            <% airport.each do |airport| %>
+            <option value="<%= airport[2] %>" <%= @params[:from] == airport[2] ? "selected" : "" %>>
+              <%= "#{airport[1]} (#{airport[2]})" %>
+            </option>
+            <% end %>
+          </optgroup>
         <% end %>
       </select>
     </div>
