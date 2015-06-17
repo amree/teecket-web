@@ -30,7 +30,7 @@
         <% countries.each do |country, airport| %>
           <optgroup label="<%= country %>">
             <% airport.each do |airport| %>
-            <option value="<%= airport[2] %>" <%= @params[:from] == airport[2] ? "selected" : "" %>>
+            <option value="<%= airport[2] %>" <%= @params[:to] == airport[2] ? "selected" : "" %>>
               <%= "#{airport[1]} (#{airport[2]})" %>
             </option>
             <% end %>
