@@ -1,6 +1,7 @@
 require "sinatra/base"
 require "tilt/erubis"
 require "teecket"
+require "net/http"
 
 require_relative "helpers/data"
 
@@ -24,6 +25,30 @@ class App < Sinatra::Base
 
   get '/:from/:to/:date' do
     index
+  end
+
+  post '/hooks/telegram' do
+    json = JSON.parse(request.body.read)
+    sender_id = json["message"]["from"]["id"]
+
+    from, to, date = if json["message"]["text"]
+                       json["message"]["text"].split(" ")
+                     else
+                       ['', '', '']
+                     end
+
+    validate(from, to, date)
+
+    if @errors.empty?
+      search(from, to, date)
+
+      message = erb :telegram, layout: false
+    else
+      message = "Try this format: KUL KBR 31-12-2015"
+    end
+
+    sendTelegramMessage(sender_id, message)
+    ""
   end
 
   not_found do
@@ -55,6 +80,19 @@ class App < Sinatra::Base
 
   def search(from, to, date)
     @flights = Teecket.search(from: from, to: to, date: date)
+  end
+
+  def sendTelegramMessage(receiver, message)
+    uri = URI.parse("https://api.telegram.org/bot#{ENV['TG_API']}/sendMessage")
+
+    http = Net::HTTP.new(uri.host, uri.port)
+    http.use_ssl = true
+    http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+    request = Net::HTTP::Post.new(uri.request_uri)
+    request.set_form_data({ chat_id: receiver, text: message })
+
+    http.request(request)
   end
 
   run! if app_file == $0

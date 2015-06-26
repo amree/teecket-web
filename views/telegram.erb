@@ -1,0 +1,10 @@
+<% total = @flights.size %>
+<% @flights.each_with_index do |flight, index| %>
+  <%= "#{index+1}/#{total}" %>
+  <%= "-" * 10 %>
+  <%= "#{flight[:flight_name]} - #{flight[:flight_number]}" %>
+  <%= "#{flight[:origin]} - #{flight[:destination]}" %>
+  <%= "#{flight[:depart_at]} - #{flight[:arrive_at]}" %>
+  <%= "RM #{flight[:fare]}" %>
+
+<% end %>
