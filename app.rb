@@ -34,25 +34,27 @@ class App < Sinatra::Base
   private
 
   def index
-    validate
+    if @params.size > 0
+      validate(@params[:from], @params[:to], @params[:date])
+    end
 
-    if !@params[:to].nil? && @errors.empty?
-      search
+    if @errors.empty?
+      search(@params[:from], @params[:to], @params[:date])
     end
 
     erb :index
   end
 
-  def validate
-    unless @params[:from].nil?
-      if @params[:from].empty? || @params[:to].empty? || @params[:date].empty?
-        @errors << "Make sure you've entered all the inputs"
-      end
+  def validate(from, to, date)
+    if from.nil? || to.nil? || date.nil?
+      @errors << "Make sure you've entered all the inputs"
+    elsif from.empty? || to.empty? || date.empty?
+      @errors << "Make sure you've entered all the inputs"
     end
   end
 
-  def search
-    @flights = Teecket.search(from: @params[:from], to: @params[:to], date: @params[:date])
+  def search(from, to, date)
+    @flights = Teecket.search(from: from, to: to, date: date)
   end
 
   run! if app_file == $0
