@@ -1,22 +1,24 @@
 require "sinatra/base"
+require 'sinatra/partial'
 require "tilt/erubis"
 require "teecket"
 require "net/http"
 
-require_relative "helpers/data"
+require_relative "helpers"
 
 class App < Sinatra::Base
+  register Sinatra::Partial
+  helpers Sinatra::Teecket::Helpers
+
   enable :logging
 
-  helpers Sinatra::Teecket::Data
+  set :partial_template_engine, :erb
 
   before do
-    @params = params
-
-    @flights = []
-    @errors = []
-
-    @airports = airports
+    @params    = params
+    @flights   = []
+    @errors    = []
+    @countries = airports.group_by { |country| country.first }
   end
 
   get '/' do

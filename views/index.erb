@@ -8,35 +8,17 @@
   <form name="search" method="get" class="form-inline">
 
     <div class="form-group">
-      <select name="from" class="form-control select2">
-        <option disabled selected>Origin</option>
-        <% countries = @airports.group_by{|a| a.first} %>
-        <% countries.each do |country, airport| %>
-          <optgroup label="<%= country %>">
-            <% airport.each do |airport| %>
-            <option value="<%= airport[2] %>" <%= @params[:from] == airport[2] ? "selected" : "" %>>
-              <%= "#{airport[1]} (#{airport[2]})" %>
-            </option>
-            <% end %>
-          </optgroup>
-        <% end %>
-      </select>
+      <%= partial 'partials/airport_selector',
+                  locals: { target: params[:from],
+                            name: 'from',
+                            countries: @countries } %>
     </div>
 
     <div class="form-group">
-      <select name="to" class="form-control select2">
-        <option disabled selected>Destination</option>
-        <% countries = @airports.group_by{|a| a.first} %>
-        <% countries.each do |country, airport| %>
-          <optgroup label="<%= country %>">
-            <% airport.each do |airport| %>
-            <option value="<%= airport[2] %>" <%= @params[:to] == airport[2] ? "selected" : "" %>>
-              <%= "#{airport[1]} (#{airport[2]})" %>
-            </option>
-            <% end %>
-          </optgroup>
-        <% end %>
-      </select>
+      <%= partial 'partials/airport_selector',
+                  locals: { target: params[:to],
+                            name: 'to',
+                            countries: @countries } %>
     </div>
 
     <div class="form-group">
