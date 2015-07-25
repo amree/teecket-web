@@ -54,3 +54,8 @@
 :-ms-input-placeholder {
    text-align: center;
 }
+
+.announcements {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}

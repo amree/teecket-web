@@ -53,6 +53,10 @@ class App < Sinatra::Base
     ""
   end
 
+  get '/announcements' do
+    erb :announcements
+  end
+
   not_found do
     status 404
     erb :oops
