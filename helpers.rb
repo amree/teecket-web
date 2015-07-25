@@ -3,6 +3,10 @@ require "sinatra/base"
 module Sinatra
   module Teecket
     module Helpers
+      def today
+        DateTime.now.strftime("%d-%m-%Y")
+      end
+
       def titleize(str)
         str.gsub /^./, str[0].capitalize
       end
