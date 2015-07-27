@@ -1,0 +1,12 @@
+<select name="<%= name %>" class="form-control select2">
+  <option disabled selected><%= titleize(name) %></option>
+  <% countries.each do |country, airport| %>
+    <optgroup label="<%= country %>">
+      <% airport.each do |airport| %>
+      <option value="<%= airport[2] %>" <%= target == airport[2] ? "selected" : "" %>>
+        <%= "#{airport[1]} (#{airport[2]})" %>
+      </option>
+      <% end %>
+    </optgroup>
+  <% end %>
+</select>

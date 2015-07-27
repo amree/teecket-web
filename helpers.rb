@@ -2,7 +2,15 @@ require "sinatra/base"
 
 module Sinatra
   module Teecket
-    module Data
+    module Helpers
+      def today
+        DateTime.now.strftime("%d-%m-%Y")
+      end
+
+      def titleize(str)
+        str.gsub /^./, str[0].capitalize
+      end
+
       def airports
         [
           ['Australia', 'Darwin', 'DRW'],
@@ -56,6 +64,7 @@ module Sinatra
           ['Malaysia', 'Sibu', 'SBW'],
           ['Malaysia', 'Subang', 'SZB'],
           ['Malaysia', 'Tawau', 'TWU'],
+          ['Singapore', 'Singapore', 'SIN']
         ]
       end
     end

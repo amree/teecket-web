@@ -1,47 +1,26 @@
+<%= partial 'partials/logo' %>
 
-<div class="logo text-center">
-  <img src="/images/logo64.png" />
-</div>
-
-<div class="well text-center boxes">
+<div class="text-center boxes">
 
   <form name="search" method="get" class="form-inline">
 
     <div class="form-group">
-      <select name="from" class="form-control select2">
-        <option disabled selected> Choose origin </option>
-        <% countries = @airports.group_by{|a| a.first} %>
-        <% countries.each do |country, airport| %>
-          <optgroup label="<%= country %>">
-            <% airport.each do |airport| %>
-            <option value="<%= airport[2] %>" <%= @params[:from] == airport[2] ? "selected" : "" %>>
-              <%= "#{airport[1]} (#{airport[2]})" %>
-            </option>
-            <% end %>
-          </optgroup>
-        <% end %>
-      </select>
+      <%= partial 'partials/airport_selector',
+                  locals: { target: params[:from],
+                            name: 'from',
+                            countries: @countries } %>
     </div>
 
     <div class="form-group">
-      <select name="to" class="form-control select2">
-        <option disabled selected> Choose destination </option>
-        <% countries = @airports.group_by{|a| a.first} %>
-        <% countries.each do |country, airport| %>
-          <optgroup label="<%= country %>">
-            <% airport.each do |airport| %>
-            <option value="<%= airport[2] %>" <%= @params[:to] == airport[2] ? "selected" : "" %>>
-              <%= "#{airport[1]} (#{airport[2]})" %>
-            </option>
-            <% end %>
-          </optgroup>
-        <% end %>
-      </select>
+      <%= partial 'partials/airport_selector',
+                  locals: { target: params[:to],
+                            name: 'to',
+                            countries: @countries } %>
     </div>
 
     <div class="form-group">
       <div class="input-group date">
-        <input name="date" type="text" class="form-control" placeholder="31-12-2015" value="<%= params[:date] %>">
+        <input name="date" type="text" class="form-control text-center" placeholder="<%= today %>" value="<%= params[:date] %>">
         <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
       </div>
     </div>
@@ -120,10 +99,4 @@
   <% end %>
 </div>
 
-<div class="marketing">
-  <p class="footer">
-    Developed with love using <a href="https://www.ruby-lang.org/en/">Ruby</a>. Source can be found on <a href="https://github.com/amree/teecket-web">GitHub</a>. Use the Facebook page for any feedbacks or reports, so, please don't forget to like our Page :)
-  </p>
-
-  <div class="fb-like" data-href="https://facebook.com/teecket-web" data-layout="standard" data-action="recommend" data-show-faces="true" data-share="true"></div>
-</div>
+<%= partial 'partials/marketing', locals: { text: 'announcement' } %>
