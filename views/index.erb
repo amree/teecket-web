@@ -1,4 +1,7 @@
 <%= partial 'partials/logo' %>
+<% unless @flights.count > 0 %>
+  <%= partial 'partials/notice', locals: { warning: @warning } %>
+<% end %>
 
 <div class="text-center boxes">
 

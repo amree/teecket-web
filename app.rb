@@ -19,6 +19,7 @@ class App < Sinatra::Base
     @flights   = []
     @errors    = []
     @countries = airports.group_by { |country| country.first }
+    @warning    = ENV['WARNING']
   end
 
   get '/' do
