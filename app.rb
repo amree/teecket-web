@@ -30,30 +30,6 @@ class App < Sinatra::Base
     index
   end
 
-  post '/hooks/telegram' do
-    json = JSON.parse(request.body.read)
-    sender_id = json["message"]["from"]["id"]
-
-    from, to, date = if json["message"]["text"]
-                       json["message"]["text"].split(" ")
-                     else
-                       ['', '', '']
-                     end
-
-    validate(from, to, date)
-
-    if @errors.empty?
-      search(from, to, date)
-
-      message = erb :telegram, layout: false
-    else
-      message = "Try this format: KUL KBR 31-12-2015"
-    end
-
-    sendTelegramMessage(sender_id, message)
-    ""
-  end
-
   get '/announcements' do
     erb :announcements
   end
