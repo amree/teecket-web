@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/amree/teecket.git
-  revision: 7d46db3eebe7ee41f34c4df887a95a2fa5d500cc
+  revision: 746c15edb45c39f9979ca9b379e695d4cea3b540
   branch: master
   specs:
     teecket (0.0.11)
@@ -19,9 +19,9 @@ GEM
       celluloid (~> 0.16.0)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
-    mini_portile (0.6.2)
-    nokogiri (1.6.6.2)
-      mini_portile (~> 0.6.0)
+    mini_portile2 (2.0.0)
+    nokogiri (1.6.7.2)
+      mini_portile2 (~> 2.0.0.rc2)
     puma (2.11.3)
       rack (>= 1.1, < 2.0)
     rack (1.6.2)
@@ -55,4 +55,4 @@ DEPENDENCIES
   teecket!
 
 BUNDLED WITH
-   1.10.6
+   1.11.2
