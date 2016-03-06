@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/amree/teecket.git
-  revision: 746c15edb45c39f9979ca9b379e695d4cea3b540
+  revision: 857765811749913b3196a231c93ff12eea82434e
   branch: master
   specs:
     teecket (0.0.11)
