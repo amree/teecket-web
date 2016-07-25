@@ -64,7 +64,16 @@ module Sinatra
           ['Malaysia', 'Sibu', 'SBW'],
           ['Malaysia', 'Subang', 'SZB'],
           ['Malaysia', 'Tawau', 'TWU'],
-          ['Singapore', 'Singapore', 'SIN']
+          ['Singapore', 'Singapore', 'SIN'],
+          ['Philippines', 'Cagayan De Oro', 'CGY'],
+          ['Philippines', 'Cebu', 'CEB'],
+          ['Philippines', 'Clark', 'CRK'],
+          ['Philippines', 'Davao', 'DVO'],
+          ['Philippines', 'Kalibo - Boracay', 'KLO'],
+          ['Philippines', 'Manila', 'MNL'],
+          ['Philippines', 'Puerto Princesa', 'PPS'],
+          ['Philippines', 'Tacloban', 'TAC'],
+          ['Philippines', 'Tagbilaran', 'TAG']
         ]
       end
     end
